@@ -1,0 +1,14 @@
+To fix the Lofree Block keyboard (in Windows mode) on XFCE (tested on Devuan) :
+
+Open a text editor with root privileges to create a new driver config file:
+    sudo mousepad /etc/modprobe.d/hid_apple.conf
+
+Paste this into the file to force standard F-key behavior:
+    options hid_apple fnmode=2
+
+Save the file and close the text editor.
+
+Update the boot image so it remembers this rule:
+    sudo update-initramfs -u
+
+Restart your computer.
